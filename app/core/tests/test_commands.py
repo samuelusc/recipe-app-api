@@ -26,7 +26,8 @@ class CommandTests(SimpleTestCase):
         # Execute the command to be tested
         call_command('wait_for_db')
 
-        # Ensure the mocked check method was called only once with expected arguments
+        # Ensure the mocked check method was called
+        # only once with expected arguments
         patched_check.assert_called_once_with(databases=['default'])
 
     @patch('time.sleep')
