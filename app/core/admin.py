@@ -26,7 +26,24 @@ class UserAdmin(BaseUserAdmin):
         ),
         (_('Important dates'), {'fields': ('last_login',)}),
     )
+    # readonly_fields is used to make the field read-only
     readonly_fields = ['last_login']
+    add_fieldsets = (
+        (None, {
+            # wide class is used to make the form wider
+            'classes': ('wide',),
+            'fields': (
+                'email',
+                'password1',
+                'password2',
+                'name',
+                'is_active',
+                'is_staff',
+                'is_superuser',
+            )
+        }
+        ),
+    )
 
 
 # Register your models here.
