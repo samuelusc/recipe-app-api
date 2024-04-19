@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',  # add rest_framework.authtoken
     'drf_spectacular',
-    'user',  # create a user app
+    'user',  # create user app
+    'recipe',  # create recipe app
 ]
 
 MIDDLEWARE = [
