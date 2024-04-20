@@ -106,12 +106,14 @@ class PrivateRecipeApiTests(TestCase):
     def test_create_recipe(self):
         """Test creating a new recipe."""
         payload = {
-            'title': 'Chocolate cheesecake',
+            'title': 'Sample recipe',
             'time_minutes': 30,
             'price': Decimal('5.99'),
         }
         res = self.client.post(RECIPES_URL, payload)  # /api/recipe/recipes/
-
+        # test for fix  400 status error
+        if res.status_code != status.HTTP_201_CREATED:
+            print("Failed to create recipe:", res.data)
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         recipe = Recipe.objects.get(id=res.data['id'])
         for key, value in payload.items():
