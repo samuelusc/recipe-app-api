@@ -40,7 +40,7 @@ def create_recipe(user, **params):
 
 
 class PublicRecipeAPITests(TestCase):
-    """Test unauthenticated recipe API access."""
+    """Test unauthenticated recipe API requests."""
 
     def setUp(self):
         self.client = APIClient()
